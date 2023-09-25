@@ -1,8 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  router: {
-    fileName: "index.js",
-    keepDefaultRouter: false,
-  }
+  modules: ["@nuxtjs/tailwindcss", 'nuxt-mdi'],
 })
