@@ -30,7 +30,7 @@ npm run dev
 ```
 
 # Important Note
-Please make sure the [Websocket](https://github.com/Majd-Yahia/meteoweather-socket) is started before you run this project
+Please make sure the [Websocket](https://github.com/Majd-Yahia/meteoweather-socket) is started and running on Port:3000 and this project on Port:3001
 # Resources
 - [Nuxt Guide](https://nuxt.com/docs/getting-started/introduction)
 - [Socket IO](https://socket.io/get-started/chat/)
