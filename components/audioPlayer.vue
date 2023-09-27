@@ -18,8 +18,8 @@
             </div>
             <div class="player__progress-bar">
                 <div :hidden="!currentStyle" ref="waveSurfer" class="player__wave-surfer"></div>
-                <input v-if="!currentStyle" ref="progressBar" type="range" min="0" :max="totalTime" :value="currentTime" step="1"
-                    class="player__progress-bar__input" @input="seek" />
+                <input v-if="!currentStyle" ref="progressBar" type="range" min="0" :max="totalTime" :value="currentTime"
+                    step="1" class="player__progress-bar__input" @input="seek" />
                 <!-- <div class="player__progress-fill" :style="{ width: (currentTime / totalTime * 100) + '%' }"></div> -->
             </div>
 
@@ -44,6 +44,7 @@ import '@/assets/sass/audio.sass'
 import WaveSurfer from 'wavesurfer.js'
 import useFormatTime from '~/composables/useFormatTime';
 import { connectToSocket, sendMessage } from '~/composables/useSocket';
+import randomNameGenerator from '~/composables/useRandomGenerator'
 
 export default {
     props: {
@@ -55,22 +56,25 @@ export default {
     data() {
         return {
             wavesurfer: null as WaveSurfer | null,
-            isPlaying: false as Boolean,
-            isMuted: false as Boolean,
+            isPlaying: false as boolean,
+            isMuted: false as boolean,
             duration: 100 as number,
             totalTime: 0 as number,
             currentTime: 0 as number,
-            currentStyle: false as Boolean | undefined,
+            currentStyle: false as boolean | undefined,
             channelName: "event" as string,
+            randomName: '' as string,
         };
     },
     async mounted() {
-        connectToSocket().then((resp) => {
+        this.randomName = randomNameGenerator();
+
+        connectToSocket(this.randomName).then((resp) => {
             console.log("Connected Successfully");
         })
-        .catch((error) => {
-            console.error(error);
-        });
+            .catch((error) => {
+                console.error(error);
+            });
 
         // HTMLElement as a type for $refs.
         this.wavesurfer = WaveSurfer.create({
@@ -94,7 +98,7 @@ export default {
 
         this.wavesurfer.on('audioprocess', (time) => {
             this.currentTime = time;
-            
+
         });
 
         this.wavesurfer.on('click', (time) => {
@@ -115,7 +119,7 @@ export default {
             this.isPlaying = !this.isPlaying;
             this.wavesurfer.playPause();
 
-            this.sendAction(this.isPlaying? 'Played the song': 'Paused the song');
+            this.sendAction(this.isPlaying ? 'Played the song' : 'Paused the song');
         },
         fastForward() {
             if (!this.wavesurfer) { return };
@@ -139,7 +143,7 @@ export default {
 
             this.isMuted = !this.isMuted;
             this.isMuted ? this.wavesurfer.setVolume(0) : this.wavesurfer.setVolume(1);
-            this.sendAction(this.isMuted? 'Muted': 'Unmuted');
+            this.sendAction(this.isMuted ? 'Muted' : 'Unmuted');
         },
         seek(event: Event) {
             if (!event.target) { return; }

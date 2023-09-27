@@ -3,8 +3,11 @@ import { io } from 'socket.io-client';
 import { ref } from "vue";
 
 export const socket = ref(null as any);
+export const currentName = ref(null as any);
 
-export function connectToSocket(ws: string = "ws://localhost:3000/") {
+export function connectToSocket(name: string, ws: string = "ws://localhost:3000/") {
+  currentName.value = name;
+
   return new Promise((resolve, reject) => {
     socket.value = io(ws);
     socket.value.on('connect', () => {
@@ -50,7 +53,7 @@ export const sendMessage = (channelName: String, action: string) => {
       return;
     }
 
-    socket.value.emit(channelName, {action, ...browserDetails});
+    socket.value.emit(channelName, {action, ...browserDetails, name: currentName.value});
   });
 };
 

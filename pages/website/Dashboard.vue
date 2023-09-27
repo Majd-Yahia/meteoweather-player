@@ -21,6 +21,9 @@
                 <thead class="bg-gray-50">
                   <tr>
                     <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      Temporary Name
+                    </th>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                       Action
                     </th>
                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Browser</th>
@@ -34,6 +37,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
                   <tr v-for="(log, index) in 10" :key="index">
+                    <td class="px-3 py-4 text-sm text-gray-900">{{ logs[index]?.name }}</td>
                     <td class="px-3 py-4 text-sm text-gray-900">{{ logs[index]?.action }}</td>
                     <!-- <td class="px-3 py-4 text-sm text-gray-900">{{ logs[index]?.browser }}</td> -->
                     <td class="px-3 py-4 text-sm text-gray-900">{{ logs[index]?.brands[0]?.brand }}</td>
