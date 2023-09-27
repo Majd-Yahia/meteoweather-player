@@ -11,12 +11,16 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/laravel-echo": "^1.1.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "nuxt": "^3.7.3",
     "nuxt-mdi": "^1.1.1"
   },
   "dependencies": {
     "sass": "^1.68.0",
-    "wavesurfer.js": "^7.3.2"
+    "socket.io-client": "^4.7.2",
+    "vue3-toastify": "^0.1.13",
+    "wavesurfer.js": "^7.3.2",
+    "ws": "^8.14.2"
   }
 }
