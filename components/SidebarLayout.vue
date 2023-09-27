@@ -15,10 +15,6 @@
 			<!-- Sidebar component, swap this element with another sidebar if you like -->
 			<div class="flex min-h-0 flex-1 flex-col bg-gray-800">
 				<div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
-					<div class="flex flex-shrink-0 items-center px-4">
-						<img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-							alt="Your Company">
-					</div>
 					<nav class="mt-5 flex-1 space-y-1 px-2">
 						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 						<NuxtLink href="/"

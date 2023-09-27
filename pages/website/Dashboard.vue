@@ -255,7 +255,7 @@ const removeLog = async (logId: string) => {
 
 const clearLogs = async () => {
   try {
-    const response = await fetch(`${url.value}/clear`)
+    const response = await fetch(`${url.value}/clear`, { method: 'DELETE' })
     if (response.status == 204) {
       await fetchLogs()
       useNuxtApp().$toast.success('Logs were cleared');
