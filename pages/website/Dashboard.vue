@@ -68,7 +68,7 @@
                       </span>
                       to
                       <span class="font-medium">
-                        {{ paginator.lastPage }}
+                        {{ Math.ceil(paginator.total / paginator.perPage) }}
                       </span>
                       of
                       <span class="font-medium">
@@ -119,6 +119,7 @@
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { connectToSocket, socket, disconnectFromChannel } from '~/composables/useSocket'
+import randomNameGenerator from '~/composables/useRandomGenerator';
 
 type SocketResponse = {
   action: string,
@@ -143,8 +144,6 @@ const paginator = ref({
   total: 1 as number,
 })
 
-
-
 async function fetchLogs() {
   try {
     const response = await fetch(`${url.value}?page=${paginator.value.currentPage}&perPage=${paginator.value.perPage}`)
@@ -162,8 +161,8 @@ async function fetchLogs() {
 onMounted(async () => {
   await fetchLogs()
 
-  connectToSocket().then((resp) => {
-
+  let randomName = randomNameGenerator();
+  connectToSocket(randomName).then((resp) => {
     if (socket.value) {
       socket.value.on(channelName.value, (response: SocketResponse) => {
         if (response.success) {
@@ -171,6 +170,7 @@ onMounted(async () => {
 
           if (logs.value.length >= paginator.value.perPage) {
             logs.value.splice(-1); // Remove the oldest element from the beginning of the array
+            paginator.value.total += 1;
           }
 
           logs.value = [response, ...logs.value]
