@@ -25,7 +25,7 @@ cd meteoweather-player
 ```
 npm install
 ```
-- Start the websocket
+- Start the audio player
 ```
 npm run dev
 ```
