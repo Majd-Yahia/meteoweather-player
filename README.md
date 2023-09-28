@@ -9,10 +9,11 @@ This project has a custom audio player with wavesurfer that is connected to a [A
 - License
 
 # Prerequisites
-- Node v18+ [Node](https://nodejs.org/en/download)
+- [Node v18+](https://nodejs.org/en/download)
+- [Nuxt 3](https://nuxt.com/docs)
 
 # Installation
-- To run this [Nuxt 3](https://nuxt.com/docs)
+- Clone the git repo
 ```
 git clone https://github.com/Majd-Yahia/meteoweather-player.git
 ```
