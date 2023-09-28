@@ -3,7 +3,7 @@ This project has a custom audio player with wavesurfer that is connected to a [A
 # Table of Contents
 - Prerequisites
 - Installation
-- Important Note
+- Featers
 - Resources
 - Contact
 - License
@@ -29,8 +29,15 @@ npm install
 ```
 npm run dev
 ```
-# Important Note
+## Important Note
 Please make sure the [Websocket](https://github.com/Majd-Yahia/meteoweather-socket) is started and running on **Port:3000**
+
+# Featers:
+- Responsive Design using [Tailwind](https://tailwindui.com/)
+- Custom SASS for the audio player
+- Socket notifications
+- Socket notification do not trigger a new fetch data but **keeps** tracking of the records to always display correct data
+- Composition API's
 
 # Resources
 - [Nuxt Guide](https://nuxt.com/docs/getting-started/introduction)
