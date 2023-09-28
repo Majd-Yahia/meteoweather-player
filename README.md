@@ -1,5 +1,5 @@
 # Audio Player (Dashboard)
-This project has a custom audio with wavesurfer that is connected to a [Audio Websocket](https://github.com/Majd-Yahia/meteoweather-socket) you can view the [Audio Figma Design](https://www.figma.com/file/Looltp8AmnED9Lx55PDDf1/Player?type=design&node-id=0-1&mode=design)
+This project has a custom audio player with wavesurfer that is connected to a [Audio Websocket](https://github.com/Majd-Yahia/meteoweather-socket) you can view the [Audio Figma Design](https://www.figma.com/file/Looltp8AmnED9Lx55PDDf1/Player?type=design&node-id=0-1&mode=design)
 # Table of Contents
 - Prerequisites
 - Installation
