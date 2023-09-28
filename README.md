@@ -9,7 +9,7 @@ This project has a custom audio player with wavesurfer that is connected to a [A
 - License
 
 # Prerequisites
-- Node v18+ [Visit Google](https://nodejs.org/en/download)
+- Node v18+ [Node](https://nodejs.org/en/download)
 
 # Installation
 - To run this [Nuxt 3](https://nuxt.com/docs)
